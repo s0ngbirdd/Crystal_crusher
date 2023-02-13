@@ -15,12 +15,12 @@ public class ObjectController : MonoBehaviour
 
     private void OnEnable()
     {
-        ObjectSpawner.OnSpawnObject += ActivateRandomObject;
+        ObjectPool.OnSpawnObject += ActivateRandomObject;
     }
 
     private void OnDisable()
     {
-        ObjectSpawner.OnSpawnObject -= ActivateRandomObject;
+        ObjectPool.OnSpawnObject -= ActivateRandomObject;
     }
 
     private void Start()

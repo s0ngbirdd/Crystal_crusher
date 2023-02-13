@@ -4,9 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - RedCrystal
-  - GreenCrystal
-  - BlueCrystal
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -14,10 +12,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Column
-  - RedCrystal
-  - GreenCrystal
-  - BlueCrystal
+  - ColumnLayer
+  - RockLayer
+  - PaperLayer
+  - PigLayer
   - 
   - 
   - 

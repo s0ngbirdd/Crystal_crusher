@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8381668414086004077}
   - component: {fileID: 8381668414086004076}
   - component: {fileID: 8381668414086004079}
-  - component: {fileID: 8381668414086004078}
+  - component: {fileID: -5751595477311487334}
   m_Layer: 6
   m_Name: Column
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8381668414086004081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8381668414558470978}
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89e9d7aa3c7e4a85adc7be092f645851, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 1
+  m_Size: {x: 1.15, y: 9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,18 +102,18 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.16, y: 0.16, z: 0.16, w: 0.16}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 1.15, y: 9}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.15, y: 9}
   m_EdgeRadius: 0
---- !u!114 &8381668414086004078
+--- !u!114 &-5751595477311487334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,14 +122,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8381668414086004081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 542e5367b5d13e74a90916c76a2292fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f63eff8581421c449050aba76ae1c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _poolCount: 12
+  _autoExpand: 0
+  _rockPrefab: {fileID: -7536632251898627215, guid: 4c79a6856e13ffd4090f05c4dcc5d40d, type: 3}
+  _paperPrefab: {fileID: -7924686811352743531, guid: f6d143977f2986646ae0e717c26e5dfa, type: 3}
+  _pigPrefab: {fileID: 3606458211555187316, guid: 83ea1a70e68583c45b8f526352317adc, type: 3}
   _spawnPoint: {fileID: 8381668414558470978}
-  _objects:
-  - {fileID: 2447340952003523161, guid: 03fcdcfdd4c2ad644b6a7745845fc8dc, type: 3}
-  - {fileID: 612200095475569870, guid: 9ef654dad4ef98749b2adfd6f642918c, type: 3}
-  - {fileID: 8855773322898442894, guid: d36444a96543f174a85c57a401fc3148, type: 3}
+  _timeBeforeSpawn: 0.5
 --- !u!1 &8381668414558470981
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8381668414558470978}
   m_Layer: 6
-  m_Name: Spawner
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8381668414558470981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.45, z: 0}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
