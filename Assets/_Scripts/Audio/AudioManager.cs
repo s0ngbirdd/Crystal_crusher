@@ -9,6 +9,9 @@ public class AudioManager : MonoBehaviour
     // Serialize
     [SerializeField] private Sound[] _sounds;
 
+    // Private
+    private bool _isSoundEnabled = true;
+
     private void Awake()
     {
         if (Instance == null)
@@ -66,5 +69,32 @@ public class AudioManager : MonoBehaviour
     {
         Sound snd = Array.Find(_sounds, sound => sound.name == name);
         return snd.source;
+    }
+
+    public void EnableDisableSoundVolume()
+    {
+        if (_isSoundEnabled)
+        {
+            foreach (Sound sound in _sounds)
+            {
+                sound.source.volume = 0;
+            }
+
+            _isSoundEnabled = false;
+        }
+        else if (!_isSoundEnabled)
+        {
+            foreach (Sound sound in _sounds)
+            {
+                sound.source.volume = sound.volume;
+            }
+
+            _isSoundEnabled = true;
+        }
+    }
+
+    public bool ReturnSoundEnabled()
+    {
+        return _isSoundEnabled;
     }
 }

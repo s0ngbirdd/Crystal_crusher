@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 89e9d7aa3c7e4a85adc7be092f645851, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd77367546bf4433dbbb2317a935df54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1.15, y: 9}
+  m_Size: {x: 1.15, y: 7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,16 +102,16 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.16, y: 0.16, z: 0.16, w: 0.16}
+    border: {x: 0.24, y: 0.35999998, z: 0.24, w: 0.24}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 1.15, y: 9}
+    oldSize: {x: 1.77, y: 1.88}
+    newSize: {x: 1.15, y: 7}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.15, y: 9}
+  m_Size: {x: 1.15, y: 7}
   m_EdgeRadius: 0
 --- !u!114 &-5751595477311487334
 MonoBehaviour:
@@ -132,6 +132,7 @@ MonoBehaviour:
   _pigPrefab: {fileID: 3606458211555187316, guid: 83ea1a70e68583c45b8f526352317adc, type: 3}
   _spawnPoint: {fileID: 8381668414558470978}
   _timeBeforeSpawn: 0.5
+  _spawnBlocker: {fileID: 4226728139671843514}
 --- !u!1 &8381668414558470981
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +142,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8381668414558470978}
-  m_Layer: 6
+  - component: {fileID: 8093032443460509778}
+  - component: {fileID: 4226728139671843514}
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,10 +159,50 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8381668414558470981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.5, z: 0}
+  m_LocalPosition: {x: 0, y: -3.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8381668414086004077}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8093032443460509778
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381668414558470981}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.05}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2}
+  m_EdgeRadius: 0
+--- !u!114 &4226728139671843514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381668414558470981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d27cf56aebf51449d3d2ed40f971ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tagToCompare: RockPaperPig
+  _boxCollider2D: {fileID: 8093032443460509778}

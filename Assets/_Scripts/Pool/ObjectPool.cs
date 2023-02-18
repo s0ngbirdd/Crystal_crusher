@@ -15,6 +15,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private Pig _pigPrefab;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _timeBeforeSpawn = 0.5f;
+    [SerializeField] private SpawnBlocker _spawnBlocker;
 
     // Private
     private PoolMono<Rock> _rockPool;
@@ -47,7 +48,7 @@ public class ObjectPool : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && _isCoroutineEnd)
+        if (Input.GetMouseButtonDown(0) && _isCoroutineEnd && _spawnBlocker.ReturnCanSpawn())
         {
             //Instantiate(_objects[_randomIndex], _spawnPoint.position, Quaternion.identity);
             CreateRandomObject();
