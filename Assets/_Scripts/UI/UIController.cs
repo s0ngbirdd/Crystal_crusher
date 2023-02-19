@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image _soundImage;
     [SerializeField] private Sprite _soundEnabled;
     [SerializeField] private Sprite _soundDisabled;
-    [SerializeField] private GameObject _popup;
+    //[SerializeField] private GameObject _popup;
 
     // Private
     //private bool _isSoundEnabled = true;
@@ -52,9 +52,10 @@ public class UIController : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 
-    public void ShowHint()
+    /*public void ShowHint()
     {
         _popup.SetActive(true);
         
@@ -68,7 +69,7 @@ public class UIController : MonoBehaviour
 
         // make game unpause
         //Time.timeScale = 1;
-    }
+    }*/
 
     public void QuitGame()
     {

@@ -24,6 +24,8 @@ public class ObjectPool : MonoBehaviour
     private int _randomIndex;
     private bool _isCoroutineEnd = true;
 
+    private GameController _gameController;
+
     private void OnEnable()
     {
         ObjectController.OnGenerateNewRandomObject += SetRandomIndex;
@@ -44,11 +46,13 @@ public class ObjectPool : MonoBehaviour
 
         _pigPool = new PoolMono<Pig>(_pigPrefab, _poolCount, transform);
         _pigPool.AutoExpand = _autoExpand;
+
+        _gameController = FindObjectOfType<GameController>();
     }
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && _isCoroutineEnd && _spawnBlocker.ReturnCanSpawn())
+        if (Input.GetMouseButtonDown(0) && _isCoroutineEnd && _spawnBlocker.ReturnCanSpawn() && !_gameController.ReturnIsPaused())
         {
             //Instantiate(_objects[_randomIndex], _spawnPoint.position, Quaternion.identity);
             CreateRandomObject();

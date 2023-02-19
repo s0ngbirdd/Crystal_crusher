@@ -22,7 +22,7 @@ public class SpawnBlocker : MonoBehaviour
         if (collision.gameObject.tag.Equals(_tagToCompare) && _canSpawn)
         {
             _canSpawn = false;
-            Debug.Log("Can spawn >>> " + _canSpawn);
+            //Debug.Log("Can spawn >>> " + _canSpawn);
             OnSpawnBlock?.Invoke();
         }
     }
@@ -33,7 +33,7 @@ public class SpawnBlocker : MonoBehaviour
         if (collision.gameObject.tag.Equals(_tagToCompare))
         {
             _canSpawn = true;
-            Debug.Log("Can spawn >>> " + _canSpawn);
+            //Debug.Log("Can spawn >>> " + _canSpawn);
             OnSpawnUnblock?.Invoke();
         }
     }
