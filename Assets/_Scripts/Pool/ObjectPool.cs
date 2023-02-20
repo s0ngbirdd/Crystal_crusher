@@ -23,7 +23,6 @@ public class ObjectPool : MonoBehaviour
     private PoolMono<Pig> _pigPool;
     private int _randomIndex;
     private bool _isCoroutineEnd = true;
-
     private GameController _gameController;
 
     private void OnEnable()
@@ -54,7 +53,6 @@ public class ObjectPool : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && _isCoroutineEnd && _spawnBlocker.ReturnCanSpawn() && !_gameController.ReturnIsPaused())
         {
-            //Instantiate(_objects[_randomIndex], _spawnPoint.position, Quaternion.identity);
             CreateRandomObject();
             OnSpawnObject?.Invoke();
 

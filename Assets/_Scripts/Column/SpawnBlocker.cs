@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnBlocker : MonoBehaviour
@@ -16,24 +14,20 @@ public class SpawnBlocker : MonoBehaviour
     // Private
     private bool _canSpawn = true;
 
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals(_tagToCompare) && _canSpawn)
         {
             _canSpawn = false;
-            //Debug.Log("Can spawn >>> " + _canSpawn);
             OnSpawnBlock?.Invoke();
         }
     }
-
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals(_tagToCompare))
         {
             _canSpawn = true;
-            //Debug.Log("Can spawn >>> " + _canSpawn);
             OnSpawnUnblock?.Invoke();
         }
     }

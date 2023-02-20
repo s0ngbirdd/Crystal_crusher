@@ -1,27 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    // Public
+    public static event Action OnRestart;
+
     // Serialize
     [SerializeField] private Image _soundImage;
     [SerializeField] private Sprite _soundEnabled;
     [SerializeField] private Sprite _soundDisabled;
     //[SerializeField] private GameObject _popup;
-
-    // Private
-    //private bool _isSoundEnabled = true;
-
-    public void PlaySound()
-    {
-        if (!AudioManager.Instance.ReturnAudioSource("Click").isPlaying)
-        {
-            AudioManager.Instance.PlayOneShot("Click");
-        }
-    }
 
     private void Start()
     {
@@ -34,6 +25,15 @@ public class UIController : MonoBehaviour
             _soundImage.sprite = _soundDisabled;
         }
     }
+
+    public void PlaySound()
+    {
+        if (!AudioManager.Instance.ReturnAudioSource("Click").isPlaying)
+        {
+            AudioManager.Instance.PlayOneShot("Click");
+        }
+    }
+
 
     public void EnableDisableSound()
     {
@@ -51,6 +51,8 @@ public class UIController : MonoBehaviour
 
     public void RestartGame()
     {
+        OnRestart?.Invoke();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
