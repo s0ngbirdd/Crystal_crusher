@@ -5,6 +5,7 @@ public class ScoreController : MonoBehaviour
 {
     // Serialize
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private int _showAdsRate = 10;
 
     // Private
     private int _score = 0;
@@ -17,5 +18,10 @@ public class ScoreController : MonoBehaviour
     public void IncreaseScore()
     {
         _score++;
+
+        if (_score % _showAdsRate == 0)
+        {
+            InterstitialAds.Instance.ShowAd();
+        }
     }
 }
