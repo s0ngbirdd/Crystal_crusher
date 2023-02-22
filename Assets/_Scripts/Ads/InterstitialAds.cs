@@ -15,6 +15,8 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     // Private
     private string _adID;
 
+    private GameController _gameController;
+
     private void Awake()
     {
         if (Instance == null)
@@ -32,6 +34,11 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         LoadAd();
     }
 
+    private void Start()
+    {
+        _gameController = FindObjectOfType<GameController>();
+    }
+
     public void LoadAd()
     {
         Debug.Log("Loading Ad: " + _adID);
@@ -42,6 +49,8 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     {
         Debug.Log("Showing Ad: " + _adID);
         Advertisement.Show(_adID, this);
+
+        _gameController.PauseGame();
     }
 
     public void OnUnityAdsAdLoaded(string placementId)
@@ -72,5 +81,7 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
         LoadAd();
+
+        _gameController.UnpauseGame();
     }
 }

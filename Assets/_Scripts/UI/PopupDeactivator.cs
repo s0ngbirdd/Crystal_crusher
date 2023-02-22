@@ -15,11 +15,7 @@ public class PopupDeactivator : MonoBehaviour
 
     public void DeactivatePopup()
     {
-        if (_popupName.Equals("GameEnd"))
-        {
-            _gameController.DisableGameEndPopap();
-        }
-        else if (_popupName.Equals("Hint"))
+        if (_popupName.Equals("Hint"))
         {
             _gameController.DisableHintPopap();
         }
@@ -27,5 +23,9 @@ public class PopupDeactivator : MonoBehaviour
         {
             _gameController.DisableQuitPopap();
         }
+        /*else if (_popupName.Equals("GameEnd"))
+        {
+            _gameController.DisableGameEndPopap();
+        }*/
     }
 }

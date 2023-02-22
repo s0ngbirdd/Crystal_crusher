@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     private bool _canRestart = true;
     private Coroutine _coroutine;
     private bool _isPaused;
-    private Animator _gameEndPopupAnimator;
+    //private Animator _gameEndPopupAnimator;
     private Animator _hintPopupAnimator;
     private Animator _quitPopupAnimator;
 
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        _gameEndPopupAnimator = _gameEndPopap.GetComponent<Animator>();
+        //_gameEndPopupAnimator = _gameEndPopap.GetComponent<Animator>();
         _hintPopupAnimator = _hintPopap.GetComponent<Animator>();
         _quitPopupAnimator = _quitPopap.GetComponent<Animator>();
     }
@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
         _quitButton.interactable = false;
     }
 
-    public void CloseGameEndPopap()
+    /*public void CloseGameEndPopap()
     {
         _gameEndPopupAnimator.SetTrigger("Disabled");
     }
@@ -102,7 +102,7 @@ public class GameController : MonoBehaviour
         _restartButton.interactable = true;
         _hintButton.interactable = true;
         _quitButton.interactable = true;
-    }
+    }*/
 
     public void EnableHintPopap()
     {
@@ -153,6 +153,28 @@ public class GameController : MonoBehaviour
     public void DisableQuitPopap()
     {
         _quitPopap.SetActive(false);
+        _isPaused = false;
+        Time.timeScale = 1;
+
+        _soundButton.interactable = true;
+        _restartButton.interactable = true;
+        _hintButton.interactable = true;
+        _quitButton.interactable = true;
+    }
+
+    public void PauseGame()
+    {
+        _isPaused = true;
+        Time.timeScale = 0;
+
+        _soundButton.interactable = false;
+        _restartButton.interactable = false;
+        _hintButton.interactable = false;
+        _quitButton.interactable = false;
+    }
+
+    public void UnpauseGame()
+    {
         _isPaused = false;
         Time.timeScale = 1;
 
