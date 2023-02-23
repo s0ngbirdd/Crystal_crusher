@@ -221,7 +221,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 254260623}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -550,6 +550,7 @@ MonoBehaviour:
   _soundImage: {fileID: 73001446}
   _soundEnabled: {fileID: 21300000, guid: 5b62d2f926c9344a784f354a4b70272f, type: 3}
   _soundDisabled: {fileID: 21300000, guid: 9538b841d53f6489080af6601732ed97, type: 3}
+  _loadSceneName: MainMenu
 --- !u!4 &254260624
 Transform:
   m_ObjectHideFlags: 0
@@ -1556,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &580632463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1889,7 +1890,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 254260623}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4553,7 +4554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1835875981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4789,7 +4790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2005905607
 Transform:
   m_ObjectHideFlags: 0

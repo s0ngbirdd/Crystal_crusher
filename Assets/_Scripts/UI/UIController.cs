@@ -13,9 +13,15 @@ public class UIController : MonoBehaviour
     [SerializeField] private Sprite _soundEnabled;
     [SerializeField] private Sprite _soundDisabled;
     //[SerializeField] private GameObject _popup;
+    [SerializeField] private string _loadSceneName;
+
+    // Private
+    private ScoreController _scoreController;
 
     private void Start()
     {
+        _scoreController = FindObjectOfType<ScoreController>();
+
         if (AudioManager.Instance.ReturnSoundEnabled())
         {
             _soundImage.sprite = _soundEnabled;
@@ -51,6 +57,11 @@ public class UIController : MonoBehaviour
 
     public void RestartGame()
     {
+        if (_scoreController.ReturnScore() > SaveLoadSystem.Instance.LoadGame())
+        {
+            _scoreController.SaveScore();
+        }
+
         OnRestart?.Invoke();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -73,8 +84,24 @@ public class UIController : MonoBehaviour
         //Time.timeScale = 1;
     }*/
 
-    public void QuitGame()
+    public void LoadScene()
     {
-        Application.Quit();
+        if (_scoreController.ReturnScore() > SaveLoadSystem.Instance.LoadGame())
+        {
+            _scoreController.SaveScore();
+        }
+
+        OnRestart?.Invoke();
+
+        SceneManager.LoadScene(_loadSceneName);
+        Time.timeScale = 1;
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (_scoreController.ReturnScore() > SaveLoadSystem.Instance.LoadGame())
+        {
+            _scoreController.SaveScore();
+        }
     }
 }

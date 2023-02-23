@@ -10,11 +10,11 @@ public class ScoreController : MonoBehaviour
     // Private
     private int _score = 0;
 
-    private void Start()
+    /*private void Start()
     {
         _score = SaveLoadSystem.Instance.LoadGame();
         Debug.Log("LoadScore >>> " + _score);
-    }
+    }*/
 
     private void Update()
     {
@@ -27,10 +27,20 @@ public class ScoreController : MonoBehaviour
 
         if (_score % _showAdsRate == 0)
         {
-            SaveLoadSystem.Instance.SaveGame(_score);
-            Debug.Log("SaveScore >>> " + _score);
+            //SaveLoadSystem.Instance.SaveGame(_score);
+            //Debug.Log("SaveScore >>> " + _score);
 
             InterstitialAds.Instance.ShowAd();
         }
+    }
+
+    public int ReturnScore()
+    {
+        return _score;
+    }
+
+    public void SaveScore()
+    {
+        SaveLoadSystem.Instance.SaveGame(_score);
     }
 }
