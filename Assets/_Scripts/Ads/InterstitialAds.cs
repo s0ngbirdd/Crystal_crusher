@@ -34,10 +34,25 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         LoadAd();
     }
 
-    private void Start()
+    private void OnEnable()
+    {
+        GameController.OnStart += FindGameController;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnStart -= FindGameController;
+    }
+
+    private void FindGameController()
     {
         _gameController = FindObjectOfType<GameController>();
     }
+
+    /*private void Start()
+    {
+        _gameController = FindObjectOfType<GameController>();
+    }*/
 
     public void LoadAd()
     {

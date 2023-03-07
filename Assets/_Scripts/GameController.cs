@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    // Public
+    public static event Action OnStart;
+
     // Serialize
     [SerializeField] private float _delayTime = 2f;
     [SerializeField] private GameObject _gameEndPopap;
@@ -40,6 +44,8 @@ public class GameController : MonoBehaviour
         //_gameEndPopupAnimator = _gameEndPopap.GetComponent<Animator>();
         _hintPopupAnimator = _hintPopap.GetComponent<Animator>();
         _quitPopupAnimator = _quitPopap.GetComponent<Animator>();
+
+        OnStart?.Invoke();
     }
 
     private void Update()
