@@ -12,8 +12,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image _soundImage;
     [SerializeField] private Sprite _soundEnabled;
     [SerializeField] private Sprite _soundDisabled;
-    //[SerializeField] private GameObject _popup;
-    [SerializeField] private string _loadSceneName;
+    [SerializeField] private string _loadSceneName = "MainMenu";
 
     // Private
     private ScoreController _scoreController;
@@ -39,7 +38,6 @@ public class UIController : MonoBehaviour
             AudioManager.Instance.PlayOneShot("Click");
         }
     }
-
 
     public void EnableDisableSound()
     {
@@ -67,22 +65,6 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
-
-    /*public void ShowHint()
-    {
-        _popup.SetActive(true);
-        
-        // make game pause
-        //Time.timeScale = 0;
-    }
-
-    public void HideHint()
-    {
-        _popup.SetActive(false);
-
-        // make game unpause
-        //Time.timeScale = 1;
-    }*/
 
     public void LoadScene()
     {

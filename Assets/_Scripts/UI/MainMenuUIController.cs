@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuUIController : MonoBehaviour
 {
     // Serialize
-    [SerializeField] private string _loadSceneName;
+    [SerializeField] private string _loadSceneName = "RockPaperPig";
 
     public void PlaySound()
     {

@@ -8,10 +8,6 @@ public class SaveLoadSystem : MonoBehaviour
     // Public
     public static SaveLoadSystem Instance;
 
-    // SerializeFields
-    // Set desired save path
-    //[SerializeField] private string _savePath;
-
     // Private fields
     private string _savePath;
 
@@ -29,9 +25,6 @@ public class SaveLoadSystem : MonoBehaviour
         }
 
         _savePath = Application.persistentDataPath + "/save.dat";
-
-        // Debug to console
-        //Debug.Log(Application.persistentDataPath);
     }
 
     public void SaveGame(int score)
@@ -41,17 +34,6 @@ public class SaveLoadSystem : MonoBehaviour
         formatter.Serialize(stream, score);
         stream.Close();
     }
-
-    /*public void LoadGame(int score)
-    {
-        if (File.Exists(_savePath))
-        {
-            FileStream stream = File.Open(_savePath, FileMode.Open);
-            BinaryFormatter formatter = new BinaryFormatter();
-            score = (int)formatter.Deserialize(stream);
-            stream.Close();
-        }
-    }*/
 
     public int LoadGame()
     {

@@ -49,11 +49,6 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         _gameController = FindObjectOfType<GameController>();
     }
 
-    /*private void Start()
-    {
-        _gameController = FindObjectOfType<GameController>();
-    }*/
-
     public void LoadAd()
     {
         Debug.Log("Loading Ad: " + _adID);

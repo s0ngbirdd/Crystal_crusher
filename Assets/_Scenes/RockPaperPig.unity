@@ -3827,7 +3827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5da5f7df90e8e45987f4131f2b14ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayTime: 2
+  _delayTime: 1
   _gameEndPopap: {fileID: 1086505926}
   _hintPopap: {fileID: 45369524}
   _quitPopap: {fileID: 1021907559}
@@ -4474,7 +4474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1377039895}
-  _showAdsRate: 10
+  _showAdsRate: 50
 --- !u!1 &1951471915
 GameObject:
   m_ObjectHideFlags: 0

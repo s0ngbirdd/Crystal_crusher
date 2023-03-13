@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MainMenuObjectPool : MonoBehaviour
 {
-    // Public
-    //public static event Action OnSpawnObject;
-
     // Serialize
     [SerializeField] private int _poolCount = 5;
     [SerializeField] private bool _autoExpand = true;
@@ -14,9 +11,6 @@ public class MainMenuObjectPool : MonoBehaviour
     [SerializeField] private Paper _paperPrefab;
     [SerializeField] private Pig _pigPrefab;
     [SerializeField] private Transform _spawnPoint;
-    //[SerializeField] private float _timeBeforeSpawn = 0.5f;
-
-    //[SerializeField] private SpawnBlocker _spawnBlocker;
 
     // Private
     private PoolMono<Rock> _rockPool;
@@ -24,19 +18,7 @@ public class MainMenuObjectPool : MonoBehaviour
     private PoolMono<Pig> _pigPool;
     private int _randomIndex;
     private bool _isCoroutineEnd;
-    //private GameController _gameController;
-
     private float _timeBeforeSpawn;
-
-    /*private void OnEnable()
-    {
-        ObjectController.OnGenerateNewRandomObject += SetRandomIndex;
-    }
-
-    private void OnDisable()
-    {
-        ObjectController.OnGenerateNewRandomObject -= SetRandomIndex;
-    }*/
 
     private void Start()
     {
@@ -49,8 +31,7 @@ public class MainMenuObjectPool : MonoBehaviour
         _pigPool = new PoolMono<Pig>(_pigPrefab, _poolCount, transform);
         _pigPool.AutoExpand = _autoExpand;
 
-        //_gameController = FindObjectOfType<GameController>();
-
+        CreateRandomObject();
         StartCoroutine(WaitBeforeSpawn());
     }
 
@@ -64,23 +45,6 @@ public class MainMenuObjectPool : MonoBehaviour
             StartCoroutine(WaitBeforeSpawn());
         }
     }
-
-    /*private void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(0) && _isCoroutineEnd && _spawnBlocker.ReturnCanSpawn())
-        {
-            CreateRandomObject();
-            OnSpawnObject?.Invoke();
-
-            _isCoroutineEnd = false;
-            StartCoroutine(WaitBeforeSpawn());
-
-            if (!AudioManager.Instance.ReturnAudioSource("Spawn").isPlaying)
-            {
-                AudioManager.Instance.PlayOneShot("Spawn");
-            }
-        }
-    }*/
 
     private void CreateRandomObject()
     {
@@ -117,11 +81,6 @@ public class MainMenuObjectPool : MonoBehaviour
         var pig = _pigPool.GetFreeElement();
         pig.transform.position = _spawnPoint.position;
     }
-
-    /*private void SetRandomIndex(int index)
-    {
-        _randomIndex = index;
-    }*/
 
     private IEnumerator WaitBeforeSpawn()
     {
